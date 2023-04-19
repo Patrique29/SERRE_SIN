@@ -61,7 +61,7 @@ void Pression(int a) { //Afficheur Pression
 void Temperature(int a) {//Afficheur Température
     String b = str(a);
     fill(255);
-    rect(width / 2,height*3 / 10,height/8,10);
+    rect(width / 2,height*3+1 / 10,height/8,-width / 8);
     fill(200);
     textSize(height/16);
     text(b + "°C", width / 2, height*3 / 10);
