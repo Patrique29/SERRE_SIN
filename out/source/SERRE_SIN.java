@@ -39,7 +39,6 @@ The function draws the slider track and thumb using the parameters, and updates 
 Finally, the function returns the updated currentValue.*/
 
 
-
 public int drawSlider(float minValue, float maxValue, float currentValue, float x, float y, float width, float height) {
   // Draw the slider track
   fill(200);
@@ -67,19 +66,21 @@ public int drawSlider(float minValue, float maxValue, float currentValue, float 
 public void Humiditer(int a) {  //Afficheur Humiditer
     String b = str(a);
     fill(200);
-    textSize(width/10);
+    textSize(height/16);
     text(b + "%", width / 2, height / 10);
 }
 public void Pression(int a) { //Afficheur Pression
     String b = str(a);
     fill(200);
-    textSize(width/10);
+    textSize(height/16);
     text(b + "MPa", width / 2, height*2 / 10);
 }
 public void Temperature(int a) {//Afficheur Température
     String b = str(a);
+    fill(255);
+    rect(width / 2,height*3 / 10,height/8,10);
     fill(200);
-    textSize(width/10);
+    textSize(height/16);
     text(b + "°C", width / 2, height*3 / 10);
 }
 
@@ -101,6 +102,7 @@ public void boutonL(){
 public void setup() {
     /* size commented out by preprocessor */; // 480x854 pour Jerry
     background(50,50,50);
+    noStroke();
 }
 public void mouseClicked() {
     if (buttonPressed) {
@@ -115,23 +117,9 @@ public void draw() {
         println(sliderValue);
     }
     dernValue = sliderValue;
-    Humiditer(Ihumiditer);
-    Temperature(Ihumiditer);
-    Pression(Ihumiditer);
-    // if ((mouseX <= 125) && (mouseX >= 75) && (mouseY <= 125) && (mouseY >= 75) && mousePressed == true && favori == false) {
-    //     favori = true;
-// }
-    // if ((mouseX <= 125) && (mouseX >= 75) && (mouseY <= 125) && (mouseY >= 75) && mousePressed == true && favori == true) {
-    //     favori = false;
-// }
-    // if (favori == false) {
-    //     fill(200);
-// } 
-    // if (favori == true) {
-    //     fill(255,255,0);
-// }
-    // rect(75, 75, 50,50);
-    // delay(200);
+    Humiditer(sliderValue);
+    Temperature(sliderValue);
+    Pression(sliderValue);
 }
 
 

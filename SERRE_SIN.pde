@@ -22,7 +22,6 @@ The function draws the slider track and thumb using the parameters, and updates 
 Finally, the function returns the updated currentValue.*/
 
 
-
 int drawSlider(float minValue, float maxValue, float currentValue, float x, float y, float width, float height) {
   // Draw the slider track
   fill(200);
@@ -50,19 +49,21 @@ int drawSlider(float minValue, float maxValue, float currentValue, float x, floa
 void Humiditer(int a) {  //Afficheur Humiditer
     String b = str(a);
     fill(200);
-    textSize(width/10);
+    textSize(height/16);
     text(b + "%", width / 2, height / 10);
 }
 void Pression(int a) { //Afficheur Pression
     String b = str(a);
     fill(200);
-    textSize(width/10);
+    textSize(height/16);
     text(b + "MPa", width / 2, height*2 / 10);
 }
 void Temperature(int a) {//Afficheur Température
     String b = str(a);
+    fill(255);
+    rect(width / 2,height*3 / 10,height/8,10);
     fill(200);
-    textSize(width/10);
+    textSize(height/16);
     text(b + "°C", width / 2, height*3 / 10);
 }
 
@@ -84,6 +85,7 @@ void boutonL(){
 void setup() {
     size(720,1440); // 480x854 pour Jerry
     background(50,50,50);
+    noStroke();
 }
 void mouseClicked() {
     if (buttonPressed) {
@@ -98,7 +100,7 @@ void draw() {
         println(sliderValue);
     }
     dernValue = sliderValue;
-    Humiditer(Ihumiditer);
-    Temperature(Ihumiditer);
-    Pression(Ihumiditer);
+    Humiditer(sliderValue);
+    Temperature(sliderValue);
+    Pression(sliderValue);
 }
